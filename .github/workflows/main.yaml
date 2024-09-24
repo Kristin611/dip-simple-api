@@ -70,7 +70,7 @@ jobs:
           --command-id $command_id \
           --instance-id i-09ea15e784ccd7ff1
 
-          status=$(aws ssm list-commands --command-id $command_id --query "Commands[0].StatusDetails" --ouput text)
+          status=$(aws ssm list-commands --command-id $command_id --query "Commands[0].StatusDetails" --output text)
 
           echo "$status"
 
