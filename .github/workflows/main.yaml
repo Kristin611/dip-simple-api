@@ -61,7 +61,7 @@ jobs:
           --parameters commands='[
             "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ steps.login-aws-ecr.outputs.registry }}"
           ]' 
-          --query "Command.CommandId" \
+          --query "Command.CommandId" 
           --output text)
 
           echo "$command_id"   
