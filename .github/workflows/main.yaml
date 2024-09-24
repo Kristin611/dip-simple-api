@@ -70,7 +70,7 @@ jobs:
           --command-id $command_id \
           --instance-id i-09ea15e784ccd7ff1
 
-          commandOutput=$(aws ssm list-commands --command-id $command-id)
+          commandOutput=$(aws ssm list-commands --command-id $command_id)
 
           echo "$commandOutput"
           
