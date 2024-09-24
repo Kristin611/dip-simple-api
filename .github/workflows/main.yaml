@@ -65,7 +65,7 @@ jobs:
           echo "$command_id"   
 
           aws ssm wait command-executed \
-          --comand-id $command_id
+          --command-id $command_id \
           --instance-id i-09ea15e784ccd7ff1
 
           commandOutput=$(aws ssm list-commands --command-id $command-id)
