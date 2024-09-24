@@ -62,7 +62,8 @@ jobs:
             "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ steps.login-aws-ecr.outputs.registry }}"
           ]' \
           --query "Command.CommandId" \
-          --output tex  
+          --output text)
+  
 
           aws ssm wait command-executed \
           --command-id $command_id \
