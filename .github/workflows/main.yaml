@@ -62,9 +62,7 @@ jobs:
             "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ steps.login-aws-ecr.outputs.registry }}"
           ]' \
           --query "Command.CommandId" \
-          --output text)
-
-          echo "$command_id"   
+          --output tex  
 
           aws ssm wait command-executed \
           --command-id $command_id \
@@ -72,12 +70,13 @@ jobs:
 
           status=$(aws ssm list-commands --command-id $command_id --query "Commands[0].StatusDetails" --output text)
 
-          echo "$status"
 
           if [ "$status" == 'Success' ]; then
             echo "Command executed successfully"
           else 
             echo "Command failed"
+            echo "Error: $status"
+            exit 1
           fi    
           
           
