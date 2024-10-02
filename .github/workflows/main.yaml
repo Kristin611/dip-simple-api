@@ -68,7 +68,7 @@ jobs:
           --query "Command.CommandId" \
           --output text)
 
-        # want command id to be available in next step so we echo it as shown below
+        
           echo "command_id=$command_id" >> $GITHUB_ENV
       - name: Wait for Docker Commands to Complete
         run: |  
