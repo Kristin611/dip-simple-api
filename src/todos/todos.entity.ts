@@ -13,6 +13,9 @@ export class TodoEntity {
   @Column({ nullable: true })
   title: string;
 
+  @Column({ nullable: true })
+  author: string;
+
   @Column()
   description: string;
 
