@@ -67,14 +67,18 @@ jobs:
           ]' \
           --query "Command.CommandId" \
           --output text)
+
+        # want command id to be available in next step so we echo it as shown below
+          echo "command_id=$command_id" >> $GITHUB_ENV
       - name: Wait for Docker Commands to Complete
         run: |  
-          echo $command_id   
+          echo ${{ env.command_id }}   
           aws ssm wait command-executed \
           --command-id $command_id \
           --instance-id ${{secrets.INSTANCE_ID_1}} || true
-
-          status=$(aws ssm list-commands --command-id $command_id --query "Commands[0].StatusDetails" --output text)
+      - name: Check Command Status
+        run: |    
+          status=$(aws ssm list-commands --command-id ${{ env.command_id}} --query "Commands[0].StatusDetails" --output text)
 
 
           if [ "$status" == 'Success' ]; then
