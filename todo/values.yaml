@@ -1,0 +1,21 @@
+# Default values for todo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# variables are secrets in GitHub which is why there is only ""
+
+database: 
+  host: ""
+  username: ""
+  password: ""
+
+environment: production  
+
+api:
+  image:
+    repository: ""
+    tag: v5
+
+frontend:
+  image:
+    repository: ""
+    tag: v5    
