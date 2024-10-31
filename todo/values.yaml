@@ -13,9 +13,9 @@ environment: production
 api:
   image:
     repository: ""
-    tag: v5
+    tag: ""
 
 frontend:
   image:
     repository: ""
-    tag: v5    
+    tag: ""    
